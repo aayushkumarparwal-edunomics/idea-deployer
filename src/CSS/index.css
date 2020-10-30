@@ -1,0 +1,11 @@
+/* GlobalButton */
+
+.global-btn {
+  color: #fff !important;
+  border-radius: 22px !important;
+  right: 16px;
+  bottom: 16px;
+  position: fixed !important;
+  background: #f27329 !important;
+  cursor: pointer;
+}
