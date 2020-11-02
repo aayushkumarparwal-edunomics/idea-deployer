@@ -5,7 +5,51 @@
   border-radius: 22px !important;
   right: 16px;
   bottom: 16px;
+  outline: none !important;
   position: fixed !important;
   background: #f27329 !important;
   cursor: pointer;
+}
+
+.btn {
+  color: #fff !important;
+  border-radius: 18px !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #162950 !important;
+}
+
+.btn-post {
+  background-color: #f27329 !important;
+  padding-left: 26px !important;
+  padding-right: 26px !important;
+}
+
+/* Modal  */
+
+.modal-header {
+  color: #fff !important;
+  background-color: #162950 !important;
+  border: none !important;
+  box-shadow: 0px 5px #fff !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.challenges-list {
+  margin: 10px 22px;
+}
+/*  React Bootstrap CSS overriding */
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 750px !important;
+  }
+}
+
+.table-header {
+  background-color: #7995d2 !important;
+  color: #fff !important;
 }

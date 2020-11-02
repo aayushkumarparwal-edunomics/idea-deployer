@@ -3,16 +3,14 @@ import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Modal, Form, FormGroup, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import "../CSS/index.css";
 import { Typeahead } from "react-bootstrap-typeahead";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import "react-bootstrap-typeahead/css/Typeahead.min.css";
-import "react-bootstrap-typeahead/css/Typeahead.scss";
-const options = [
-  { category: "category 1", userGroup: "group 1" },
-  { category: "category 2", userGroup: "group 1" },
-  { category: "category 3", userGroup: "group 1" },
-];
+// local file imports
+import "../CSS/index.css";
+import ChallengeList from "../Components/Challenges/ChallengeList";
+
+const categories = ["Category1", "Category 2"];
+const groups = ["user 1", "user 2", "user 3"];
+const taglist = ["tag 1", "tag 2", "tag 3"];
 function Challenge() {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState();
@@ -21,12 +19,14 @@ function Challenge() {
   const [endDate, setEndDate] = useState();
   const [categoryOptions, setCategoryOptions] = useState([]);
   const [groupOptions, setGroupOptions] = useState([]);
-  //const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState([]);
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
   return (
     <div>
-      <div>Challenges Here</div>
+      <div className="challenges-list">
+        <ChallengeList />
+      </div>
       <Button
         startIcon={<AddIcon />}
         variant="contained"
@@ -37,9 +37,9 @@ function Challenge() {
         Create Challenge
       </Button>
       <Modal show={showModal} onHide={handleCloseModal} centered>
-        <Modal.Header>
-          <Modal.Title>
-            <h2>Post Challenge</h2>
+        <Modal.Header className="modal-header">
+          <Modal.Title style={{ textAlign: "center" }}>
+            Post Challenge
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -94,21 +94,21 @@ function Challenge() {
                   <Form.Label>Select Category</Form.Label>
                   <Typeahead
                     id="basic-typeahead-multiple"
-                    labelKey="category"
+                    // labelKey="category"
                     multiple
                     onChange={setCategoryOptions}
-                    options={options}
+                    options={categories}
                     placeholder="Choose Categories"
                     selected={categoryOptions}
                   />
                 </FormGroup>
               </Col>
-              <br />
+
               <Col sm="12" md="6">
                 <FormGroup>
                   <Form.File id="formcheck-api-regular">
                     <Form.File.Label>Add Challenge Image</Form.File.Label>
-                    <Form.File.Input />
+                    <Form.File.Input multiple />
                   </Form.File>
                 </FormGroup>
               </Col>
@@ -122,13 +122,13 @@ function Challenge() {
                     labelKey="userGroup"
                     multiple
                     onChange={setGroupOptions}
-                    options={options}
+                    options={groups}
                     placeholder="Select Groups"
                     selected={groupOptions}
                   />
                 </FormGroup>
               </Col>
-              <br />
+
               <Col sm="12" md="6">
                 <FormGroup>
                   <Form.Check
@@ -139,26 +139,52 @@ function Challenge() {
                 </FormGroup>
               </Col>
             </Row>
+            <FormGroup>
+              <Form.Label>Add Tags</Form.Label>
+              <Typeahead
+                id="basic-typeahead-multiple"
+                labelKey="userGroup"
+                multiple
+                onChange={setTags}
+                options={taglist}
+                placeholder="#tags"
+                selected={tags}
+              />
+            </FormGroup>
+            <Row>
+              <Col sm="12" md="6">
+                <FormGroup>
+                  <Form.File id="formcheck-api-regular">
+                    <Form.File.Label>Add Attachments</Form.File.Label>
+                    <Form.File.Input multiple />
+                  </Form.File>
+                </FormGroup>
+              </Col>
+              <Col sm="12" md="6">
+                <Row>
+                  <Col md="6">
+                    <FormGroup>
+                      <Button
+                        variant="contained"
+                        className="btn btn-cancel"
+                        onClick={handleCloseModal}
+                      >
+                        Cancel
+                      </Button>
+                    </FormGroup>
+                  </Col>
+                  <Col md="6">
+                    <FormGroup>
+                      <Button variant="contained" className="btn btn-post">
+                        Post
+                      </Button>
+                    </FormGroup>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </Form>
         </Modal.Body>
-        <br />
-        <br />
-        <Modal.Footer>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleCloseModal}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={handleCloseModal}
-          >
-            Post
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
