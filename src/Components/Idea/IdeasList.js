@@ -17,7 +17,8 @@ import TablePagination from "@material-ui/core/TablePagination";
 import PropTypes from "prop-types";
 
 // imported local files
-import challenges from "../doumyData";
+import { ideaData as ideas } from "../doumyData";
+
 import {
   StyledTableCell,
   StyledTableRow,
@@ -96,14 +97,12 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-// Challenges list component  "Main Component"
-function ChallengeList() {
+function IdeasList() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(15);
-
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, challenges.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, ideas.length - page * rowsPerPage);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -121,30 +120,27 @@ function ChallengeList() {
             }}
           >
             <StyledTableCell>Challenge Title</StyledTableCell>
+            <StyledTableCell align="left">Idea Title</StyledTableCell>
             <StyledTableCell align="left">Workspace</StyledTableCell>
-            <StyledTableCell align="left">Posted By</StyledTableCell>
+            <StyledTableCell align="left">Idea By</StyledTableCell>
             <StyledTableCell align="left">Posted On</StyledTableCell>
-            <StyledTableCell align="left">Stage</StyledTableCell>
             <StyledTableCell align="left">Details</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? challenges.slice(
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage
-              )
-            : challenges
-          ).map((challenge) => (
+            ? ideas.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : ideas
+          ).map((ideas) => (
             <StyledTableRow>
               <TableCell component="th" scope="row">
-                {challenge.title}
+                {ideas.title}
               </TableCell>
-              <TableCell align="left">{challenge.workspace}</TableCell>
-              <TableCell align="left">{challenge.author}</TableCell>
-              <TableCell align="left">{challenge.postedOn}</TableCell>
-              <TableCell align="left">{challenge.stage}</TableCell>
-              <TableCell align="left">{challenge.details}</TableCell>
+              <TableCell align="left">{ideas.ideaTitle}</TableCell>
+              <TableCell align="left">{ideas.workspace}</TableCell>
+              <TableCell align="left">{ideas.author}</TableCell>
+              <TableCell align="left">{ideas.postedOn}</TableCell>
+              <TableCell align="left">{ideas.details}</TableCell>
             </StyledTableRow>
           ))}
 
@@ -160,7 +156,7 @@ function ChallengeList() {
               rowsPerPageOptions={[15, 30, 60, { label: "All", value: -1 }]}
               colSpan={4}
               style={{ border: "none" }}
-              count={challenges.length}
+              count={ideas.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
@@ -174,8 +170,11 @@ function ChallengeList() {
           </TableRow>
         </TableFooter>
       </Table>
+      <br />
+      <br />
+      <br />
     </TableContainer>
   );
 }
 
-export default ChallengeList;
+export default IdeasList;

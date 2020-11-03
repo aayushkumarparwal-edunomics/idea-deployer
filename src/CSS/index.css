@@ -39,7 +39,7 @@
   align-items: center !important;
 }
 
-.challenges-list {
+.table-margin {
   margin: 10px 22px;
 }
 /*  React Bootstrap CSS overriding */
@@ -50,6 +50,36 @@
 }
 
 .table-header {
-  background-color: #7995d2 !important;
+  background-color: #454850 !important;
   color: #fff !important;
+}
+
+/* Avtar styling */
+.avtar {
+  margin-bottom: 8px;
+  padding: 0 15px;
+}
+.avtar-name {
+  margin: auto 0;
+  padding-left: 10px;
+}
+
+/* idea bar */
+.idea-bar-nav {
+  background-color: #fff !important;
+}
+.btn-ideas-bar {
+  color: #fff !important;
+  outline: none !important;
+  margin: 0 3px !important;
+  font-weight: bold !important;
+  border-radius: 15px 15px 0px 0px !important;
+  background-color: #213e78 !important;
+  padding: 4px 10px !important;
+}
+.btn-ideas-bar:hover {
+  background-color: #f27329 !important;
+}
+.PrivateTabIndicator-colorPrimary-5 {
+  background-color: #d9d9d9 !important;
 }

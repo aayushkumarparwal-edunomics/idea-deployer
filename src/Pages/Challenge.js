@@ -24,7 +24,7 @@ function Challenge() {
   const handleShowModal = () => setShowModal(true);
   return (
     <div>
-      <div className="challenges-list">
+      <div className="table-margin">
         <ChallengeList />
       </div>
       <Button
