@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import MobileStepper from "@material-ui/core/MobileStepper";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+//import Paper from "@material-ui/core/Paper";
+//import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
@@ -11,6 +11,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 import TopContributors from "../Components/Challenges/TopContributors";
 import { Row, Col } from "react-bootstrap";
 import IdeasBar from "../Components/Challenges/IdeasBar";
+import PostIdea from '../Components/Idea/PostIdea';
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
@@ -38,7 +39,7 @@ const tutorialSteps = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 600,
+    maxWidth: 200,
     flexGrow: 1,
     margin: "auto",
   },
@@ -50,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
   //     backgroundColor: theme.palette.background.default,
   //   },
   img: {
-    height: 255,
+    height: 100,
     display: "block",
-    maxWidth: 600,
+    maxWidth: 200,
     overflow: "hidden",
     width: "100%",
   },
@@ -77,9 +78,15 @@ function ChallengeDetails() {
 
   return (
     <div>
-      <h4 align="center">Challenge Title</h4>
-
-      <div className={classes.root}>
+      <h4 align="left">Challenge Title</h4>
+      <Row>
+         <Col lg="9" md="9" sm="12">
+         <div>
+        <h5>Description</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Erat nam at lectus urna duis convallis. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Dui nunc mattis enim ut tellus elementum sagittis. Sodales neque sodales ut etiam sit amet nisl. Turpis in eu mi bibendum neque. A diam maecenas sed enim ut. Et egestas quis ipsum suspendisse ultrices. Orci ac auctor augue mauris augue neque gravida in. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Non enim praesent elementum facilisis leo. Enim nec dui nunc mattis enim ut tellus. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Scelerisque purus semper eget duis.</p>
+      </div>
+         </Col>
+         <Col lg="3" md="3" sm="12"><div className={classes.root}>
         <AutoPlaySwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={activeStep}
@@ -106,10 +113,11 @@ function ChallengeDetails() {
           nextButton={
             <Button
               size="small"
+              style={{outline: "none"}}
               onClick={handleNext}
               disabled={activeStep === maxSteps - 1}
             >
-              Next
+              
               {theme.direction === "rtl" ? (
                 <KeyboardArrowLeft />
               ) : (
@@ -120,6 +128,7 @@ function ChallengeDetails() {
           backButton={
             <Button
               size="small"
+              style={{outline: "none"}}
               onClick={handleBack}
               disabled={activeStep === 0}
             >
@@ -128,19 +137,24 @@ function ChallengeDetails() {
               ) : (
                 <KeyboardArrowLeft />
               )}
-              Back
+              
             </Button>
           }
         />
-      </div>
+      </div></Col>
+      </Row>
+      
+      
+
       <Row>
         <Col lg="9" md="9" sm="12">
-          <IdeasBar />
-        </Col>
+         <IdeasBar />
+         </Col>
         <Col lg="3" md="3" sm="12">
           <TopContributors />
         </Col>
       </Row>
+      <PostIdea/>
     </div>
   );
 }

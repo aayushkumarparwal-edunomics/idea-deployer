@@ -1,5 +1,8 @@
 import React from "react";
-
+import { makeStyles } from '@material-ui/core/styles';
+import Slider from "@material-ui/core/Slider";
+import Typography from '@material-ui/core/Typography';
+import "../../CSS/index.css";
 const ideas = [
   {
     title: "Idea Title Here",
@@ -13,22 +16,48 @@ const ideas = [
     impactRating: "3.5",
   },
 ];
+const useStyles = makeStyles({
+  root: {
+    width: 100,
+  },
+});
+
+function valuetext(value) {
+  return `${value}°C`;
+}
 function IdeaCard() {
+  const classes = useStyles();
   return (
     <div>
-      {ideas.map((idea) => {
+      {ideas.map((idea) => (
         <div>
           <h6>{idea.title}</h6>
           <p>{idea.description}</p>
           <div>
-            <span>{idea.upVote}</span>
-            <span>{idea.downVote}</span>
-            <span>{idea.like}</span>
-            <span>{idea.effortRating}</span>
-            <span>{idea.impactRating}</span>
+            <span className="cards-footer">{idea.upVote}</span>
+            <span className="cards-footer">{idea.downVote}</span>
+            <span className="cards-footer">{idea.like}</span>
+            <span className={"cards-footer"+classes.root}>
+         <div className={classes.root}>
+         <Typography id="discrete-slider" gutterBottom>
+        Impact
+      </Typography>
+      <Slider
+        defaultValue={30}
+        getAriaValueText={valuetext}
+        aria-labelledby="discrete-slider"
+        valueLabelDisplay="auto"
+        step={1}
+        marks
+        min={0.0}
+        max={5.0}
+      />
+         </div>
+            </span>
+            <span className="cards-footer">{idea.impactRating}</span>
           </div>
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 }
