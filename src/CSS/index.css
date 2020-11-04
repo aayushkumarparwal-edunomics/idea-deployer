@@ -29,7 +29,9 @@
 }
 
 /* Modal  */
-
+.modal, .modal-backdrop{
+  z-index: 2000 !important;
+}
 .modal-header {
   color: #fff !important;
   background-color: #162950 !important;

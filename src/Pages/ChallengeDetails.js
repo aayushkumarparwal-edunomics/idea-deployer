@@ -12,6 +12,7 @@ import TopContributors from "../Components/Challenges/TopContributors";
 import { Row, Col } from "react-bootstrap";
 import IdeasBar from "../Components/Challenges/IdeasBar";
 import PostIdea from '../Components/Idea/PostIdea';
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
@@ -78,6 +79,7 @@ function ChallengeDetails() {
 
   return (
     <div>
+    
       <h4 align="left">Challenge Title</h4>
       <Row>
          <Col lg="9" md="9" sm="12">
@@ -152,9 +154,10 @@ function ChallengeDetails() {
          </Col>
         <Col lg="3" md="3" sm="12">
           <TopContributors />
+           <PostIdea/>
         </Col>
       </Row>
-      <PostIdea/>
+      
     </div>
   );
 }
