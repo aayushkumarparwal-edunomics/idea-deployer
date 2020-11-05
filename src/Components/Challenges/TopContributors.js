@@ -1,6 +1,7 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import { Avatar } from "@material-ui/core";
+
 import "../../CSS/index.css";
 const top_contributors = [
   {
@@ -24,11 +25,16 @@ const top_contributors = [
 function TopContributor() {
   return (
     <div>
-      <div>
-        <h5 align="center">Top Contributors</h5>
+      <div className="top-contri-head">
+        <h5
+          align="center"
+          style={{ color: "#fff", paddingTop: "10px", fontWeight: "bold" }}
+        >
+          Top Contributors
+        </h5>
       </div>
 
-      <div>
+      <div style={{ marginTop: "20px" }}>
         {top_contributors.map((top) => (
           <Row className="avtar">
             <Avatar src={top.image} alt={top.name} />

@@ -91,3 +91,34 @@
     margin-right: 10px;
     padding: 0 5px;
 }
+
+/* challenge details margin */
+.challenge-details
+{
+  margin : 10px 22px !important;
+}
+
+.description-footer{
+  margin-right: 10px;
+  padding: 0 5px;
+}
+
+.top-contri-head{
+  background-image: url("../Media/Banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50px;
+  min-width: 210px;
+}
+
+/* comment section challenge */
+.challenge-comment-section{
+  margin: 10px 0px 10px 20px !important;
+}
+.challenge-comments{
+  padding-left: 30px !important;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
