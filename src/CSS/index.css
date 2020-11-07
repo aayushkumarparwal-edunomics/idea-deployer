@@ -27,10 +27,34 @@
   padding-left: 26px !important;
   padding-right: 26px !important;
 }
+/* utility */
+.margin-bottom-zero{
+   margin-bottom: 0;
+}
 
+/* icons color */
+.views{
+  color:  #808080  ;
+}
+.like{
+  color: blue;
+}
+.comment{
+  color: #ffbb33;
+}
+.ideas{
+  color: #9999ff;
+}
+
+.rating{
+  color: #ffcc00;
+}
 /* Modal  */
 .modal, .modal-backdrop{
   z-index: 2000 !important;
+}
+.downvote{
+  color: red;
 }
 .modal-header {
   color: #fff !important;
@@ -121,4 +145,28 @@
   max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+
+/*  */
+.pipeline{
+  margin: 10px 25px 10px;
+  
+}
+.pipeline-streams{
+  background-color: #e6e6e6;
+  padding-top: 15px !important;
+  
+}
+.pipeline-cards{
+  background-color: #fff ;
+   margin: 20px 10px 20px; 
+  padding:25px 5px; 
+  border-radius:14px;
+  cursor: pointer;
+  /* box-shadow: 0 10px 20px 0 #d9d9d9,0 6px 20px 0 #d9d9d9 ; */
+  box-shadow: 12px 2px 15px -4px #b1b4b1, -12px 2px 8px -4px #b1b4b1;
+}
+.pipeline-cards:hover{
+  box-shadow: none;
 }

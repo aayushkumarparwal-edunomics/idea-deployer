@@ -7,8 +7,8 @@ import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import { Row } from "react-bootstrap";
-import { CommentData } from "./CommentData";
-import Comment from "./Comment";
+import { CommentData } from "../Utilities/CommentData";
+import Comment from "../Utilities/Comment";
 import "../../CSS/index.css";
 const ideas = [
   {
